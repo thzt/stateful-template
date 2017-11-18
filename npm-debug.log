@@ -1,0 +1,118 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/Cellar/node/8.1.2/bin/node',
+1 verbose cli   '/usr/local/bin/npm',
+1 verbose cli   'publish' ]
+2 info using npm@3.10.10
+3 info using node@v6.11.0
+4 verbose publish [ '.' ]
+5 silly cache add args [ '.', null ]
+6 verbose cache add spec .
+7 silly cache add parsed spec Result {
+7 silly cache add   raw: '.',
+7 silly cache add   scope: null,
+7 silly cache add   escapedName: null,
+7 silly cache add   name: null,
+7 silly cache add   rawSpec: '.',
+7 silly cache add   spec: '/Users/thzt/Github/stateful-template',
+7 silly cache add   type: 'directory' }
+8 verbose addLocalDirectory /Users/thzt/.npm/stateful-template/1.0.5/package.tgz not in flight; packing
+9 verbose correctMkdir /Users/thzt/.npm correctMkdir not in flight; initializing
+10 info lifecycle stateful-template@1.0.5~prepublish: stateful-template@1.0.5
+11 silly lifecycle stateful-template@1.0.5~prepublish: no script for prepublish, continuing
+12 verbose tar pack [ '/Users/thzt/.npm/stateful-template/1.0.5/package.tgz',
+12 verbose tar pack   '/Users/thzt/Github/stateful-template' ]
+13 verbose tarball /Users/thzt/.npm/stateful-template/1.0.5/package.tgz
+14 verbose folder /Users/thzt/Github/stateful-template
+15 verbose addLocalTarball adding from inside cache /Users/thzt/.npm/stateful-template/1.0.5/package.tgz
+16 verbose correctMkdir /Users/thzt/.npm correctMkdir not in flight; initializing
+17 silly cache afterAdd stateful-template@1.0.5
+18 verbose afterAdd /Users/thzt/.npm/stateful-template/1.0.5/package/package.json not in flight; writing
+19 verbose correctMkdir /Users/thzt/.npm correctMkdir not in flight; initializing
+20 verbose afterAdd /Users/thzt/.npm/stateful-template/1.0.5/package/package.json written
+21 silly publish { name: 'stateful-template',
+21 silly publish   version: '1.0.5',
+21 silly publish   description: 'wrap a functional React component with state & events.',
+21 silly publish   main: 'index.js',
+21 silly publish   scripts: { test: 'echo "Error: no test specified" && exit 1' },
+21 silly publish   repository:
+21 silly publish    { type: 'git',
+21 silly publish      url: 'git+https://github.com/thzt/stateful-template.git' },
+21 silly publish   keywords: [ 'functional', 'component', 'state' ],
+21 silly publish   author: { name: 'thzt' },
+21 silly publish   license: 'ISC',
+21 silly publish   bugs: { url: 'https://github.com/thzt/stateful-template/issues' },
+21 silly publish   homepage: 'https://github.com/thzt/stateful-template#readme',
+21 silly publish   dependencies: { react: '^16.1.1' },
+21 silly publish   devDependencies:
+21 silly publish    { 'babel-core': '^6.26.0',
+21 silly publish      'babel-loader': '^7.1.2',
+21 silly publish      'babel-polyfill': '^6.26.0',
+21 silly publish      'babel-preset-es2015': '^6.24.1',
+21 silly publish      'babel-preset-react': '^6.24.1',
+21 silly publish      'babel-preset-stage-0': '^6.24.1',
+21 silly publish      webpack: '^3.8.1' },
+21 silly publish   readme: '### 1. Use case\n\nWith `stateful-template`, we can create a tiny front-end framework based on React.\n\nFirstly we divide a normal React component into 5 parts, and then, rebuild it.\n\n```\nimport Template from \'./index.template.jsx\';\nimport state from \'./index.state\';\nimport events from \'./index.events\';\nimport extras from \'./index.extras\';\nimport fields from \'./index.fields\';\n\nexport default statefulTemplate({\n    Template,\n    state,\n    events,\n    extras,    // optional\n    fields,    // optional\n});\n```\n\n### 2. Elements\n\n#### 2.1 Template\n\nThe `Template` part is a [functional React component](https://reactjs.org/docs/components-and-props.html#functional-and-class-components).\n\n#### 2.2 state\n\nThe `state` part is the React component\'s `state` field, for example,\n\n```\nstate =  {\n    someState: null,\n}\n```\n\n#### 2.3 events\n\nThe `events` are the component\'s public methods including [lifecycle methods](https://reactjs.org/docs/react-component.html#the-component-lifecycle), for example,\n\n```\nevents = {\n    onSomeEvent() {\n        // `this` is the instance of the "stateful component"\n        // so we can use `this.props`, `this.state` & `this.setState`.\n    }\n\n    // lifecycle methods\n    componentDidMount() { ... }\n};\n\n```\n\n#### 2.4 extras\n\nThe `extras` part is *optional*, if given, it would provide extra data appears in `Template`. \n\n```\nextras = {\n    // it\'s return value will be passed to the `Template` as props.\n    someExtraData() {\n        // `this` is the instance of the "stateful component"\n        // so we can get `this.props` & `this.state`.\n    }\n};\n```\n\n#### 2.5 fields\n\nThe `fields` part is also *optional*, if given, it would provide some other public fields of the component.\n\n```\nfields = {\n    // it\'s return value will be set to be the public field of the "stateful component".\n    someField() {\n        // `this` is the instance of the "stateful component"\n        // so we can get `this.props` & `this.state`.\n    }\n};\n```\n\n#### 3. Stateful component \n\n```\nclass StatefulComponent extends Component {\n    constructor(...args) {\n        super(...args);\n\n        this.state = ...;\n\n        this.someField = ...;\n    }\n\n    onSomeEvent() {\n        ...\n    }\n\n    componentDidMount() {\n        ...\n    }\n\n    render() {\n        ...    // state, props or some extra computed data may be used below.\n        return <Template {...props} {...state} {...fields} {...events} {...extraData} />\n    }\n}\n```',
+21 silly publish   readmeFilename: 'README.md',
+21 silly publish   gitHead: '0726b0b300670a0bc3a756027947d9331c3ce8fe',
+21 silly publish   _id: 'stateful-template@1.0.5',
+21 silly publish   _shasum: '4738b283bfb1e0170d75ab7af6ae09c5623a422b',
+21 silly publish   _from: '.' }
+22 verbose getPublishConfig undefined
+23 silly mapToRegistry name stateful-template
+24 silly mapToRegistry using default registry
+25 silly mapToRegistry registry https://registry.npmjs.org/
+26 silly mapToRegistry data Result {
+26 silly mapToRegistry   raw: 'stateful-template',
+26 silly mapToRegistry   scope: null,
+26 silly mapToRegistry   escapedName: 'stateful-template',
+26 silly mapToRegistry   name: 'stateful-template',
+26 silly mapToRegistry   rawSpec: '',
+26 silly mapToRegistry   spec: 'latest',
+26 silly mapToRegistry   type: 'tag' }
+27 silly mapToRegistry uri https://registry.npmjs.org/stateful-template
+28 verbose publish registryBase https://registry.npmjs.org/
+29 silly publish uploading /Users/thzt/.npm/stateful-template/1.0.5/package.tgz
+30 verbose request uri https://registry.npmjs.org/stateful-template
+31 verbose request sending authorization for write operation
+32 info attempt registry request try #1 at 22:32:16
+33 verbose request using bearer token for auth
+34 verbose request id 1b50fb428656f83b
+35 http request PUT https://registry.npmjs.org/stateful-template
+36 http 403 https://registry.npmjs.org/stateful-template
+37 verbose headers { 'content-type': 'application/json',
+37 verbose headers   'cache-control': 'max-age=300',
+37 verbose headers   'content-length': '91',
+37 verbose headers   'accept-ranges': 'bytes',
+37 verbose headers   date: 'Sat, 18 Nov 2017 14:32:18 GMT',
+37 verbose headers   via: '1.1 varnish',
+37 verbose headers   connection: 'keep-alive',
+37 verbose headers   'x-served-by': 'cache-nrt6132-NRT',
+37 verbose headers   'x-cache': 'MISS',
+37 verbose headers   'x-cache-hits': '0',
+37 verbose headers   'x-timer': 'S1511015537.285592,VS0,VE1153',
+37 verbose headers   vary: 'Accept-Encoding, Accept' }
+38 verbose request invalidating /Users/thzt/.npm/registry.npmjs.org/stateful-template on PUT
+39 error publish Failed PUT 403
+40 verbose stack Error: You cannot publish over the previously published version 1.0.5. : stateful-template
+40 verbose stack     at makeError (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:302:12)
+40 verbose stack     at CachingRegistryClient.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:290:14)
+40 verbose stack     at Request._callback (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:210:14)
+40 verbose stack     at Request.self.callback (/usr/local/lib/node_modules/npm/node_modules/request/request.js:187:22)
+40 verbose stack     at emitTwo (events.js:106:13)
+40 verbose stack     at Request.emit (events.js:191:7)
+40 verbose stack     at Request.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:1048:10)
+40 verbose stack     at emitOne (events.js:96:13)
+40 verbose stack     at Request.emit (events.js:188:7)
+40 verbose stack     at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:969:12)
+41 verbose statusCode 403
+42 verbose pkgid stateful-template
+43 verbose cwd /Users/thzt/Github/stateful-template
+44 error Darwin 16.6.0
+45 error argv "/usr/local/Cellar/node/8.1.2/bin/node" "/usr/local/bin/npm" "publish"
+46 error node v6.11.0
+47 error npm  v3.10.10
+48 error code E403
+49 error You cannot publish over the previously published version 1.0.5. : stateful-template
+50 error If you need help, you may report this error at:
+50 error     <https://github.com/npm/npm/issues>
+51 verbose exit [ 1, true ]
