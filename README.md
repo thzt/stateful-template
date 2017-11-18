@@ -23,6 +23,8 @@ class StatefulPage extends Component {
         super(...args);
 
         this.state = ...;
+
+        this.someField = ...;
     }
 
     onSomeEvent() {
@@ -35,7 +37,7 @@ class StatefulPage extends Component {
 
     render() {
         ...    // state, props or some extra computed data may be used below.
-        return <Page {...state} {...props} {...events} {...extraData} />
+        return <Page {...props} {...state} {...fields} {...events} {...extraData} />
     }
 }
 ```
@@ -49,11 +51,12 @@ const StatefulPage = statefulTemplate({
     Template: Page,
     state,
     events,
-    extra,
+    extras,
+    fields,
 })
 ```
 
-so we can divide a "stateful component" into four part.
+so we can divide a "stateful component" into five parts.
 
 (1) the `Template` part is a "functional component"
 
@@ -65,7 +68,7 @@ state =  {
 }
 ```
 
-(3) the `events` part is the other methods of a "stateful component" including [React lifecycle methods](https://reactjs.org/docs/react-component.html#the-component-lifecycle), for example,
+(3) the `events` part is the remainder methods of a "stateful component" including [React lifecycle methods](https://reactjs.org/docs/react-component.html#the-component-lifecycle), for example,
 
 ```
 events = {
@@ -80,18 +83,27 @@ events = {
 
 ```
 
-(4) the `extra` part is an *optional* pure function which computes extra data used in the `Template`, for example,
+(4) the `extras` part is *optional*, if given, it will provide extra data appears in `Template`. 
 
 ```
-extra = function() {
-    // `this` is the instance of the "stateful component"
-    // so we can get `this.props` & `this.state`.
+extras = {
+    // it's return value will be passed to the `Template` as props.
+    someExtraData() {
+        // `this` is the instance of the "stateful component"
+        // so we can get `this.props` & `this.state`.
+    }
+};
+```
 
-    // the returned object will be passed to the `Template` as props.
-    return {
-        ...
-    };
-}
+(5) the `fields` part is also *optional*, if given, it will provide "stateful component" with some public fields.
+```
+fields = {
+    // it's return value will be set to be the public field of the "stateful component".
+    someField() {
+        // `this` is the instance of the "stateful component"
+        // so we can get `this.props` & `this.state`.
+    }
+};
 ```
 
 ### 4. best practice

@@ -1,6 +1,6 @@
 {
   "name": "stateful-template",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "wrap a functional React component with state & events.",
   "main": "index.js",
   "scripts": {
