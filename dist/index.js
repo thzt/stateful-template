@@ -601,7 +601,7 @@ exports.default = function (_ref) {
             _this._fields = {};
             Object.keys(fields).forEach(function (name) {
                 var fieldCreator = fields[name];
-                _this._fields[name] = fieldCreator.call(_this);
+                _this[name] = _this._fields[name] = fieldCreator.call(_this);
             });
 
             _this._events = {};
@@ -616,7 +616,7 @@ exports.default = function (_ref) {
                     return;
                 }
 
-                _this._events[name] = handler.bind(_this);
+                _this[name] = _this._events[name] = handler.bind(_this);
             });
             return _this;
         }

@@ -20,7 +20,7 @@ export default ({ Template, state, events, extras = {}, fields = {} }) => class 
         this._fields = {};
         Object.keys(fields).forEach(name => {
             const fieldCreator = fields[name];
-            this._fields[name] = fieldCreator.call(this);
+            this[name] = this._fields[name] = fieldCreator.call(this);
         });
 
         this._events = {};
@@ -33,7 +33,7 @@ export default ({ Template, state, events, extras = {}, fields = {} }) => class 
                 return;
             }
 
-            this._events[name] = handler.bind(this);
+            this[name] = this._events[name] = handler.bind(this);
         });
     }
 
