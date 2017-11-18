@@ -32,7 +32,7 @@ export default ({ Template, state, events, extra }) => class extends Component {
 
     render() {
         const { state, props, events } = this;
-        const extraData = extra.call(this);
+        const extraData = extra == null ? {} : extra.call(this);
 
         return <Template {...state} {...props} {...events} {...extraData} />
     }

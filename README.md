@@ -1,4 +1,4 @@
-### functional React component
+### 1. functional React component
 
 The [functional React component](https://reactjs.org/docs/components-and-props.html#functional-and-class-components) can be created by a pure function,
 
@@ -13,7 +13,7 @@ ReactDOM.render(
 );
 ```
 
-### stateful
+### 2. stateful React component
 
 A stateful React component can be create by a `class`.
 
@@ -40,7 +40,7 @@ class StatefulPage extends Component {
 }
 ```
 
-### stateful pattern
+### 3. stateful pattern & use case
 
 We found that the different between "functional component" and "stateful component" is,
 
@@ -80,7 +80,7 @@ events = {
 
 ```
 
-(4) the `extra` part is a pure function which computes extra data used in the `Template`, for example,
+(4) the `extra` part is an *optional* pure function which computes extra data used in the `Template`, for example,
 
 ```
 extra = function() {
@@ -93,3 +93,27 @@ extra = function() {
     };
 }
 ```
+
+### 4. best practice
+
+With this `statefulTemplate` lib, we can build a tiny front-end framework.
+
+First, let's separate `Template`, `state`, `events` & `extra` into four javascript modules.
+
+And then, we combine these four parts to a stateful component.
+
+```
+import Template from './index.template.jsx';
+import state from './index.state';
+import events from './index.events';
+import extra from './index.extra';
+
+export default statefulTemplate({
+    Template,
+    state,
+    events,
+    extra,    // optional
+});
+```
+
+At last, we get a stateful React component gracefully.
