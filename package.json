@@ -1,0 +1,27 @@
+{
+  "name": "stateful-template",
+  "version": "1.0.0",
+  "description": "wrap a functional React component with state & events.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thzt/stateful-template.git"
+  },
+  "keywords": [
+    "functional",
+    "component",
+    "state"
+  ],
+  "author": "thzt",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thzt/stateful-template/issues"
+  },
+  "homepage": "https://github.com/thzt/stateful-template#readme",
+  "dependencies": {
+    "react": "^16.1.1"
+  }
+}
