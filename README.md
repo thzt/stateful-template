@@ -81,7 +81,7 @@ fields = {
 };
 ```
 
-#### 3. Stateful component 
+### 3. Stateful component 
 
 ```
 class StatefulComponent extends Component {
